@@ -51,6 +51,24 @@ for(c in names(results)[1:4])
 
 
 ```
+Gráficos 1D:
+
+```{r}
+
+p1 = ggplot(days_since, aes(x=temp,y=results$temp)) + geom_line() +ylim(0,6000) + labs(x='Temperature',y='')
+p2 = ggplot(days_since, aes(x=hum,y=results$hum)) +geom_line()+ylim(0,6000)+labs(x='Humidity',y='')
+p3 = ggplot(days_since, aes(x=days_since_2011,y=results$days_since_2011))+geom_line()+ylim(0,6000)+ labs(x='Days since 2011',y='prediction')
+p4 = ggplot(days_since, aes(x=windspeed,y=results$windspeed))+geom_line()+ylim(0,6000)+ labs(x='Wind speed',y='')
+subplot(p3,p1,p2,p4,titleX = TRUE,titleY = TRUE)
+```
+Days_since_2011 -> A medida que pasan días desde 2011, el número de bicis que se alquilan va aumentando progresivamente. Hasta a partir del día 625 aproximadamente desde 2011 que esta tendencia cambia y empieza a disminuir el alquiler de bicis. Es decir, que a finales de 2012 el alquiler de bicis empieza a disminuir respecto a la tendencia ascendente que se observaba hasta ese momento.
+
+Temperature -> Al igual que con la variable anterior, el alquiler de bicis aumenta conforme lo hace la temperatura, hasta que llegamos a temperaturas de alrededor de 28-30 grados donde el alquiler de bicis disminuye ligeramente. En otras palabras, cuando hace mucho frío o hace mucho calor el alquiler de bicis es menor que cuando  nos encontramos en épocas de entretiempo.
+
+Humidity -> La humedad es una variable que no afecta al número de alquileres de bicicletas durante la mayor parte de su rango de valores. Únicamente el alquiler de bicis empieza a disminuir para valores de humedad superiores al 50%. Para valores inferiores, el número de alquileres permanece constante.
+
+Wind Speed -> Al igual que con humidity, la velocidad del viento tiene una correlación negativa con el número de alquileres, ya que a medida que las ráfagas de viento son superiores el número de alquileres disminuye, a lo largo de todo el rango de valores de la variable 'Wind Speed'.
+
 
 ## EXERCISE:
 
