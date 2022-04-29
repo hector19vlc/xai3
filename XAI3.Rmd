@@ -104,6 +104,19 @@ for(i in 1:nrow(th)){
 
 ```
 
+Creamos el 2D plot:
+
+```{r}
+
+ggplot(th, aes(x=temp,y=hum,fill=p,width=12,height=12)) + geom_tile() + labs(x='Temperature', y= 'Humidity',fill = 'Number of bikes')
+```
+
+En el gráfico con 2 dimensiones podemos corroborar lo que hemos observado en los gráficos anteriores de una variable. El número de alquileres de bicicletas es muy bajo para niveles de humedad altos y temperaturas bajas, ya que es en esta región del mapa donde se obtienen unos peores valores. Por el contrario, para niveles de humrfad entre 0 y 80% y temperaturas entre 15 y 30 grados es cuando se alcanza un mayor número de alquileres de bicicletas. Con las mismas condiciones de humedad y más de 30 grados de temperatura, los alquileres tambíen tienen un valor alto, pero ligeramente inferior a las condiciones óptimas que hemos comentado anteriormente.
+
+Por otra parte, si la temperatura es inferior a los 15 grados y la humedad se mantiene en valores óptimos (0-80%), el número de alquileres es ligeramente inferior que si la temperatura se mantiene en niveles óptimos (15-30º) y la humedad es muy alta (80-100%), esto se puede interpretar con que la gente, a la hora de alquilar una bicicleta, prefiere antes una temperatura adecuada que unos niveles de humedad óptimos, aunque con una muestra de solo 40 observaciones es difícil obtener conclusiones claras.
+
+En conclusión, este gráfico en 2 dimensiones confirma las interpetaciones que hemos hecho de los gráficos univariantes y parece que indica que las personas que alquilan bicis priorizan una buena temperatura que unas buenas condiciones de humedad.
+
 
 ## EXERCISE:
 
