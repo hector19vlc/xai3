@@ -154,3 +154,22 @@ for(c in names(results)[1:4])
 
 ```
 
+Realizando los gráficos 1D:
+
+```{r}
+p1 = ggplot(sampled, aes(x=bedrooms,y=results$bedrooms)) + geom_line() + labs(x='Bedrooms',y='')
+p2 = ggplot(sampled, aes(x=bathrooms,y=results$bathrooms)) +geom_line()+labs(x='Bathrooms',y='')
+p3 = ggplot(sampled, aes(x=sqft_living,y=results$sqft_living))+geom_line()+ labs(x='Sqft Livings',y='')
+p4 = ggplot(sampled, aes(x=floors,y=results$floors))+geom_line()+ labs(x='Floors',y='')
+subplot(p1,p2,p3,p4,titleX = TRUE,titleY = TRUE)
+```
+Los gráficos salen ligeramente diferentes a los del modelo, debido a la selección de la muestra.
+
+
+Bedrooms -> Las casas más caras de la muestras son las que tienen 2 dormitorios con bastante diferencia sobre el resto. Por lo demás, las viviendas de 1, 5, 6 y 10 dormitorios tienen un precio parecido. Por último, las viviendas de 3 y 4 habitaciones tienen el precio más bajo, bastante inferior que el resto de niveles de esta variable. Como la muestra es de 1000 viviendas y no sabemos cuantas hay de cada tipo, es posible que la información del gráfico esté sesgada y se trate de valores anómalos dentro de todo el conjunto de datos.
+
+Bathrooms -> A medida de que vivienda dispone de más cuartos de baño, el precio de la vivienda aumenta. Hasta 4 baños, el precio de la casa va aumentando poco a poco, sin embargo, al pasar de 4 a 5 baños el salto que se da en el precio de la vivienda es muy grande. Esto puede deberse a que en la muestra solo hay una vivienda con 6 baños, la cual es muy cara.
+
+Sqft Livings -> Esta variable sigue la misma tendencia que la anterior (Bathrooms), aunque ahora hablamos de una variable continua. Cuanta más superficie habitable tiene la casa, más cara es esta. Este aumento es más o menos constante, salvo por un pequeño tramo en el cual el precio permanece constante en viviendas de entre 4000 y 5000 unidades de superficie habitable.
+
+Floors -> Por último, en esta variable discreta que indica los pisos que tiene la casa, volvemos a observar la misma tendencia que en las 2 variables anteriores. Cuantas más plantas tiene la vivienda, mayor es su precio.
