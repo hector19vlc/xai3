@@ -55,10 +55,10 @@ Gráficos 1D:
 
 ```{r}
 
-p1 = ggplot(days_since, aes(x=temp,y=results$temp)) + geom_line() +ylim(0,6000) + labs(x='Temperature',y='')
-p2 = ggplot(days_since, aes(x=hum,y=results$hum)) +geom_line()+ylim(0,6000)+labs(x='Humidity',y='')
-p3 = ggplot(days_since, aes(x=days_since_2011,y=results$days_since_2011))+geom_line()+ylim(0,6000)+ labs(x='Days since 2011',y='prediction')
-p4 = ggplot(days_since, aes(x=windspeed,y=results$windspeed))+geom_line()+ylim(0,6000)+ labs(x='Wind speed',y='')
+p1 = ggplot(days_since, aes(x=temp,y=results$temp)) + geom_line() + geom_rug(alpha=0.1, sides="b") +ylim(0,6000) + labs(x='Temperature',y='')
+p2 = ggplot(days_since, aes(x=hum,y=results$hum)) +geom_line() + geom_rug(alpha=0.1, sides="b")+ylim(0,6000)+labs(x='Humidity',y='')
+p3 = ggplot(days_since, aes(x=days_since_2011,y=results$days_since_2011))+geom_line() + geom_rug(alpha=0.1, sides="b")+ylim(0,6000)+ labs(x='Days since 2011',y='prediction')
+p4 = ggplot(days_since, aes(x=windspeed,y=results$windspeed))+geom_line() + geom_rug(alpha=0.1, sides="b")+ylim(0,6000)+ labs(x='Wind speed',y='')
 subplot(p3,p1,p2,p4,titleX = TRUE,titleY = TRUE)
 ```
 Days_since_2011 -> A medida que pasan días desde 2011, el número de bicis que se alquilan va aumentando progresivamente. Hasta a partir del día 625 aproximadamente desde 2011 que esta tendencia cambia y empieza a disminuir el alquiler de bicis. Es decir, que a finales de 2012 el alquiler de bicis empieza a disminuir respecto a la tendencia ascendente que se observaba hasta ese momento.
@@ -157,10 +157,10 @@ for(c in names(results)[1:4])
 Realizando los gráficos 1D:
 
 ```{r}
-p1 = ggplot(sampled, aes(x=bedrooms,y=results$bedrooms)) + geom_line() + labs(x='Bedrooms',y='')
-p2 = ggplot(sampled, aes(x=bathrooms,y=results$bathrooms)) +geom_line()+labs(x='Bathrooms',y='')
-p3 = ggplot(sampled, aes(x=sqft_living,y=results$sqft_living))+geom_line()+ labs(x='Sqft Livings',y='')
-p4 = ggplot(sampled, aes(x=floors,y=results$floors))+geom_line()+ labs(x='Floors',y='')
+p1 = ggplot(sampled, aes(x=bedrooms,y=results$bedrooms)) + geom_line() + geom_rug(alpha=0.1, sides="b") + labs(x='Bedrooms',y='')
+p2 = ggplot(sampled, aes(x=bathrooms,y=results$bathrooms)) +geom_line()+ geom_rug(alpha=0.1, sides="b")+labs(x='Bathrooms',y='')
+p3 = ggplot(sampled, aes(x=sqft_living,y=results$sqft_living))+geom_line()+ geom_rug(alpha=0.1, sides="b")+ labs(x='Sqft Livings',y='')
+p4 = ggplot(sampled, aes(x=floors,y=results$floors))+geom_line() + geom_rug(alpha=0.1, sides="b")+ labs(x='Floors',y='')
 subplot(p1,p2,p3,p4,titleX = TRUE,titleY = TRUE)
 ```
 Los gráficos salen ligeramente diferentes a los del modelo, debido a la selección de la muestra.
